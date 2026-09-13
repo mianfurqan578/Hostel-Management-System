@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Hostel Management System</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark px-4 custom-navbar">
+        <a class="navbar-brand fw-bold" href="/dashboard">
+            <i class="fa-solid fa-building-user me-2"></i>Hostel Management System
+        </a>
+        <div class="ms-auto">
+            <a href="/students" class="btn btn-outline-light btn-sm rounded-pill me-2">
+                <i class="fa-solid fa-users me-1"></i>Students
+            </a>
+            <a href="/rooms" class="btn btn-outline-light btn-sm rounded-pill me-2">
+                <i class="fa-solid fa-door-open me-1"></i>Rooms
+            </a>
+            <a href="/fees" class="btn btn-outline-light btn-sm rounded-pill me-2">
+                <i class="fa-solid fa-money-bill-wave me-1"></i>Fees
+            </a>
+            <a href="/logout" class="btn btn-outline-light btn-sm rounded-pill">
+                <i class="fa-solid fa-right-from-bracket me-1"></i>Logout
+            </a>
+        </div>
+    </nav>
+
+    <div class="container my-5">
+        <h2 class="fw-bold text-center mb-5">
+            <i class="fa-solid fa-gauge-high me-2 text-primary"></i>Dashboard Overview
+        </h2>
+
+        <div class="row g-4">
+
+            <div class="col-md-4">
+                <div class="stat-card shadow-lg border-0 rounded-4 p-4 text-center" style="background: linear-gradient(135deg, #1e3c72, #2a5298);">
+                    <i class="fa-solid fa-users fa-2x mb-3 text-white"></i>
+                    <h2 class="fw-bold text-white">{{ total_students }}</h2>
+                    <p class="text-white opacity-75 mb-0">Total Students</p>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="stat-card shadow-lg border-0 rounded-4 p-4 text-center" style="background: linear-gradient(135deg, #11998e, #38ef7d);">
+                    <i class="fa-solid fa-door-open fa-2x mb-3 text-white"></i>
+                    <h2 class="fw-bold text-white">{{ total_rooms }}</h2>
+                    <p class="text-white opacity-75 mb-0">Total Rooms</p>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="stat-card shadow-lg border-0 rounded-4 p-4 text-center" style="background: linear-gradient(135deg, #f7971e, #ffd200);">
+                    <i class="fa-solid fa-bed fa-2x mb-3 text-white"></i>
+                    <h2 class="fw-bold text-white">{{ available_slots }}</h2>
+                    <p class="text-white opacity-75 mb-0">Available Slots</p>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="stat-card shadow-lg border-0 rounded-4 p-4 text-center" style="background: linear-gradient(135deg, #56ab2f, #a8e063);">
+                    <i class="fa-solid fa-check-circle fa-2x mb-3 text-white"></i>
+                    <h2 class="fw-bold text-white">{{ paid_fees }}</h2>
+                    <p class="text-white opacity-75 mb-0">Fees Paid</p>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="stat-card shadow-lg border-0 rounded-4 p-4 text-center" style="background: linear-gradient(135deg, #cb2d3e, #ef473a);">
+                    <i class="fa-solid fa-triangle-exclamation fa-2x mb-3 text-white"></i>
+                    <h2 class="fw-bold text-white">{{ unpaid_fees }}</h2>
+                    <p class="text-white opacity-75 mb-0">Fees Unpaid</p>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="stat-card shadow-lg border-0 rounded-4 p-4 text-center" style="background: linear-gradient(135deg, #6a11cb, #2575fc);">
+                    <i class="fa-solid fa-sack-dollar fa-2x mb-3 text-white"></i>
+                    <h2 class="fw-bold text-white">Rs. {{ total_collected }}</h2>
+                    <p class="text-white opacity-75 mb-0">Total Collected</p>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="row mt-5 g-3">
+            <div class="col-md-4">
+                <a href="/add_student" class="btn btn-primary w-100 py-3 rounded-pill fw-bold">
+                    <i class="fa-solid fa-user-plus me-2"></i>Add Student
+                </a>
+            </div>
+            <div class="col-md-4">
+                <a href="/add_room" class="btn btn-primary w-100 py-3 rounded-pill fw-bold">
+                    <i class="fa-solid fa-plus me-2"></i>Add Room
+                </a>
+            </div>
+            <div class="col-md-4">
+                <a href="/add_fee" class="btn btn-primary w-100 py-3 rounded-pill fw-bold">
+                    <i class="fa-solid fa-money-bill me-2"></i>Add Fee
+                </a>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>
