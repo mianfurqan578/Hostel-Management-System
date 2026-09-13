@@ -44,7 +44,7 @@ def get_db_connection():
     conn = mysql.connector.connect(
         host="localhost",
         user="root",
-        password="Qwerty@123",
+       password=os.getenv("DB_PASSWORD")
         database="hostel_management"
     )
     return conn
